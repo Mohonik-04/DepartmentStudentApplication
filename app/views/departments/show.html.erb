@@ -1,0 +1,39 @@
+<%= render @department %>
+
+<!-- Teachers List -->
+<% if @department.teachers.any? %>
+  <h3>List of Teachers</h3>
+  <table style="border-collapse: collapse; width: 100%;">
+    <thead>
+      <tr>
+        <th style="text-align: left; padding: 0;">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @department.teachers.each do |teacher| %>
+        <tr>
+          <td style="text-align: left; padding: 0;"><%= teacher.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<!-- Laboratories List -->
+<% if @department.laboratories.any? %>
+  <h3 style="margin-top: 20px;">List of Laboratories</h3>
+  <table style="border-collapse: collapse; width: 100%;">
+    <thead>
+      <tr>
+        <th style="text-align: left; padding: 0;">Room / Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @department.laboratories.each do |lab| %>
+        <tr>
+          <td style="text-align: left; padding: 0;"><%= lab.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
