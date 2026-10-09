@@ -58,13 +58,13 @@ class SectionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_section
       @section = Section.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
     def section_params
       params.expect(section: [ :name, :room, :timeslot, :subject_id ])
     end
+    
 end
