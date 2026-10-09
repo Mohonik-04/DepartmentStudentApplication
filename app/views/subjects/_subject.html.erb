@@ -4,9 +4,8 @@
     <%= subject.name %>
   </div>
 
-  <div>
+  <p>
     <strong>Teacher:</strong>
-    <%= subject.teacher_id %>
-  </div>
-
+    <%= subject.teacher&.name %>
+  </p>
 </div>

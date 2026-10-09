@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @section %>
+
+<% if @section.students.any? %>
+  <h3>Enrolled Students:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Program</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @section.students.each do |student| %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.program %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<div>
+  <%= link_to "Edit this section", edit_section_path(@section) %> |
+  <%= link_to "Back to sections", sections_path %>
+
+  <%= button_to "Destroy this section", @section, method: :delete %>
+</div>
