@@ -2,9 +2,44 @@
 
 <%= render @subject %>
 
+<h3>Sections</h3>
+
+<% @subject.sections.each do |section| %>
+  <h4><%= section.name %></h4>
+  <p>
+    Room: <%= section.room %> | 
+    Timeslot: <%= section.timeslot %> | 
+    Teacher: <%= section.subject.teacher.name %>
+  </p>
+
+  <% if section.students.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Year Level</th>
+          <th>Program</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% section.students.each do |student| %>
+          <tr>
+            <td><%= student.name %></td>
+            <td><%= student.year_level %></td>
+            <td><%= student.program %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br>
+<% end %>
+
 <div>
   <%= link_to "Edit this subject", edit_subject_path(@subject) %> |
   <%= link_to "Back to subjects", subjects_path %>
+</div>
 
+<div>
   <%= button_to "Destroy this subject", @subject, method: :delete %>
 </div>
