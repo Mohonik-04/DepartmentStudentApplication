@@ -1,5 +1,4 @@
 <p style="color: green"><%= notice %></p>
-
 <%= render @teacher %>
 
 <% if @teacher.subjects.any? %>
@@ -8,14 +7,25 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>Section Count</th>
       </tr>
     </thead>
     <tbody>
       <% @teacher.subjects.each do |subject| %>
         <tr>
           <td><%= subject.name %></td>
+          <td><%= subject.sections.count %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% end %>
+
+<div>
+  <%= link_to "Edit this teacher", edit_teacher_path(@teacher) %> |
+  <%= link_to "Back to teachers", teachers_path %>
+</div>
+
+<div>
+  <%= button_to "Destroy this teacher", @teacher, method: :delete %>
+</div>
