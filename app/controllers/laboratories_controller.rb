@@ -59,12 +59,12 @@ class LaboratoriesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_laboratory
-      @laboratory = Laboratory.find(params.expect(:id))
-    end
+  def set_laboratory
+    @laboratory = Laboratory.find(params.expect(:id))
+  end
 
     # Only allow a list of trusted parameters through.
-    def laboratory_params
-      params.require(:laboratory).permit(:name, :location, :department_id) # adjust field names if yours are different
-    end
+  def laboratory_params
+    params.require(:laboratory).permit(:name, :location, :department_id)
+  end
 end
