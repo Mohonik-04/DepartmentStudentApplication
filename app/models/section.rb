@@ -1,5 +1,4 @@
 class Section < ApplicationRecord
   belongs_to :subject
-  has_many :classlists, dependent: :destroy
-  has_many :students, through: :classlists
+  has_many :student, through: :classlists, dependent: :destroy
 end
